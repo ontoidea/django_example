@@ -1,0 +1,11 @@
+{% extends "base_blog.html" %}
+
+{% block blog_contents %}
+
+{% if post %}
+<h2>{{ post.subject }}</h2>
+<p>{{ post.author }} | {{ post.created_date }}</p>
+<p>{{ post.content|linebreaks }}</p>
+{% endif %}
+
+{% endblock blog_contents %}

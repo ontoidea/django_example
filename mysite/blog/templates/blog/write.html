@@ -1,0 +1,12 @@
+{% extends "base_blog.html" %}
+
+{% block blog_contents %}
+
+
+<form action="{% url 'blog:write' %}" method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value="쓰기" class="btn btn-primary" />
+</form>
+
+{% endblock blog_contents %}

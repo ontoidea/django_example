@@ -1,0 +1,24 @@
+{% extends "base_blog.html" %}
+
+{% block blog_contents %}
+
+{% if post_list %}
+	{% for post in post_list %}
+	
+	    <div class="col-xs-6 col-lg-4">
+		    {# <a href="/blog/{{post.id}}" > #}
+		    <a href="{% url 'blog:content' post.id %}">
+		      <h2>{{ post.subject }}</h2>
+		      <p>{{ post.content|truncatechars:70 }}</p>
+		    </a>
+	      <p>{{ post.author }} | {{ post.created_date }}</p>
+	    </div>
+
+    {% endfor %}
+{% else %}
+    <div class="col-xs-6 col-lg-4">
+      <h2>글이 없습니다.</h2>
+    </div>
+{% endif %}
+
+{% endblock blog_contents %}
